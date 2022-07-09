@@ -1,25 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { describeTicket, createTicket, describeUser, createComment } from './ticket-operations';
+import React, { useState } from 'react';
+import { createComment } from './ticket-operations';
+import { describeUser } from '../common/operations'
 import decode from 'jwt-decode';
 import Modal from 'react-modal';
-import './ticketModal.css';
+import './tickets.css';
 
-const TicketDetailsModal = ({ticketId, isOpen, onClose}) => {
+const TicketDetailsModal = ({ ticket={}, isOpen, onClose }) => {
 
-    const [ticket, setTicket] = useState({});
-    const [comment, setComment] = useState("");
+    const [content, setContent] = useState("");
     const token = window.localStorage.getItem("token");
     const id = decode(token);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const ticketResponse = await describeTicket(ticketId);
-            setTicket(ticketResponse);
-        };
 
-
-        fetchData();
-    }, [ticketId]);
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -28,20 +20,18 @@ const TicketDetailsModal = ({ticketId, isOpen, onClose}) => {
 
         const commentSubmit = {
             userId,
-            comment
+            content
         };
     
-        const data = await createComment(commentSubmit);
+        await createComment(commentSubmit);
 
-        setComment("");
+        setContent("");
     };
 
 
     return (
-        <Modal 
-            isOpen = {isOpen}
-            className="modal"
-        >
+        <Modal isOpen = {isOpen}>
+
             <h1>TICKET: {ticket.ticketId}</h1>
             <ul>
                 <li>{ticket.userId}</li>
@@ -54,8 +44,8 @@ const TicketDetailsModal = ({ticketId, isOpen, onClose}) => {
                 <input 
                     type="text"
                     placeholder="Enter details here..." 
-                    value={comment} 
-                    onChange={e=> setComment(e.target.value)}
+                    value={content} 
+                    onChange={e=> setContent(e.target.value)}
                 />
                 <button>SUBMIT</button>
             </form>

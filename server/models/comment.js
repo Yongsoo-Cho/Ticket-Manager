@@ -12,3 +12,4 @@ const CommentSchema = new schema({
 // data access object
 const Comment = mongoose.model('comment', CommentSchema);
 module.exports = Comment;
+

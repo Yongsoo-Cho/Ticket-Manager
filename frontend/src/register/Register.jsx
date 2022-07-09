@@ -3,25 +3,32 @@ import './register.css';
 import { register } from './register-operations'
 
 const Register = () => {
-    const [email, setEmailAddress] = useState("");
-    const [username, setUsername] = useState("");
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [password, setPassword] = useState("");
+  const [email, setEmailAddress] = useState("");
+  const [username, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
 
-    const handleSubmit = async (e) =>{
-      e.preventDefault();
+  const handleSubmit = async (e) =>{
+    e.preventDefault();
 
-      const user = {
-        email,
-        username,
-        firstName,
-        lastName,
-        password
-      };
-
-      await register(user);
+    const user = {
+      email,
+      username,
+      firstName,
+      lastName,
+      password
     };
+
+    const data = await register(user);
+
+    if (data.error){
+        setError(data.error);
+    } else{
+        window.location.reload();
+    };
+  };
    
     return (
       <div class= 'signup-container'>
@@ -77,6 +84,8 @@ const Register = () => {
             />
 
             <button>Register</button>
+
+            {error && <h3 className='signup-error'>Something went wrong</h3>}
           </form>
         </div>
 

@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { describeUser } from '../tickets/ticket-operations';
+import { describeUser } from '../common/operations';
 import decode from 'jwt-decode';
 
 const Profile = () => {
+    const [profile, setProfile] = useState({});
     const token = window.localStorage.getItem("token");
-    const id = decode(token);
+    const { userId } = decode(token);
 
-    const [profile, setProfile] = useState();
+
 
     useEffect(() => {
         const fetchData = async () => {
-            const profileResponse = await describeUser(id);
+            const profileResponse = await describeUser(userId);
             setProfile(profileResponse);
         };
         fetchData();
-    }, [id]);
+    }, [userId]);
 
     return(
-        <div class= 'login-container'>
+        <div className= 'login-container' style={{color: 'white'}}>
         <div></div>
 
         <div className='login-form-container'>

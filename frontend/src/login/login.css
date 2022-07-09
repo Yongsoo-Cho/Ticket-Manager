@@ -51,7 +51,7 @@
     background: red;
 }
 
-.login-container login-error{
+.login-container .login-error{
     color: red;
     margin-top: 15px;
     text-align: center;

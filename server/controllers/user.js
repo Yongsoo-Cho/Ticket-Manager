@@ -39,17 +39,22 @@ exports.register = async (req, res) => {
     const hasEmail = await User.findOne({ email: req.body.email });
 
     if (hasUsername !== null) {
-        res.json({ message: 'username taken' });
+        res.json({ 
+            token: '',
+            error: true
+        });
     } 
 
     else if (hasEmail !== null) {
-        res.json({ message: "email is already in use" });
+        res.json({ 
+            token: '',
+            error: true
+        });
     } 
 
     else {
         const hashedPassword = await argon2.hash(req.body.password);
-
-        const user = new User({
+        const userInfo = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             email: req.body.email,
@@ -57,11 +62,15 @@ exports.register = async (req, res) => {
             password: hashedPassword,
             isAdmin: false,
             enabled: false
+        };
+
+        const user = await new User(userInfo).save();
+        const token = createToken(user._id);
+
+        res.json({
+            token,
+            error: false
         });
-    
-        await user.save();
-        
-        res.json({ message: 'user created'});
     }
 };
 
@@ -71,6 +80,7 @@ exports.deleteUser = async (req, res) => {
 };
 
 exports.describeUser = async (req, res) => {
-    const user = await User.findOne({ id : req.body.userId });
+    const user = await User.findOne({ _id : req.body.userId });
+
     res.json(user);
 };

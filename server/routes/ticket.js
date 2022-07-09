@@ -7,6 +7,6 @@ router.post('/create', ticketController.createTicket);
 router.delete('/:ticketId', ticketController.deleteTicket);
 router.get('/:ticketId', ticketController.describeTicket);
 
-router.get('/getTickets', ticketController.getTickets);
+router.post('/list', ticketController.listTickets);
 
 module.exports = router;
