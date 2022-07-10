@@ -59,3 +59,8 @@
     margin-top: 15px;
     text-align: center;
 }
+.signup-container .signup-success{
+    color: lightgreen;
+    margin-top: 15px;
+    text-align: center;
+}

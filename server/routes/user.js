@@ -5,9 +5,9 @@ const userController = require('../controllers/user');
 
 router.post('/login',  userController.login);
 router.post('/register', userController.register);
-
 router.post('/describe', userController.describeUser)
-
 router.delete('/:userId', userController.deleteUser);
+
+router.post('/invite', userController.inviteUser);
 
 module.exports = router;
