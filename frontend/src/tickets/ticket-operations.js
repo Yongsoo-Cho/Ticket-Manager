@@ -8,10 +8,14 @@ export const describeTicket = async (ticketId) => {
     return response.data;
 };
 
-
-
 export const createTicket = async (body) => {
     const response = await axios.post(`${API_ENDPOINT}/ticket/create`, body);
+
+    return response.data;
+};
+
+export const editTicket = async (body) => {
+    const response = await axios.post(`${API_ENDPOINT}/ticket/edit`, body);
 
     return response.data;
 };

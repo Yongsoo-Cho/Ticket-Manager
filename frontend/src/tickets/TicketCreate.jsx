@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { createTicket } from './ticket-operations';
 import { describeUser } from '../common/operations';
 import decode from 'jwt-decode';
+import './tickets.css';
 
 const TicketCreate = () => {
     const [content, setContent] = useState("");
@@ -23,13 +24,9 @@ const TicketCreate = () => {
     };
 
     return(
-        <div class= 'login-container'>
-        <div></div>
-
-        <div className='login-form-container'>
+        <div className = 'ticket-create-container'>
           <form onSubmit={handleSubmit} id="ticketForm">
-            <h3>Content</h3>
-            <input 
+            <textarea 
               type="text"
               placeholder="Enter details here..." 
               value={content} 
@@ -37,11 +34,9 @@ const TicketCreate = () => {
               required
             />
 
-            <button>SUBMIT</button>
+            <button>Submit</button>
           </form>
         </div>
-
-      </div>
     );
 
 

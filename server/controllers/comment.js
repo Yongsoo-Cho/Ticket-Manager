@@ -18,3 +18,11 @@ exports.deleteComment = async(req,res) => {
     await Comment.deleteOne({_id: req.params.commentId });
     res.json({message: 'Comment has been deleted.'});
 };
+
+exports.listComments = async(req, res) => {
+    const { ticketId } = req.body;
+
+    const comments = await Comment.find( ticketId );
+
+    res.json(comments);
+};

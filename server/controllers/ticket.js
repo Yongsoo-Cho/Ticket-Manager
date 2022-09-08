@@ -26,11 +26,19 @@ exports.describeTicket = async (req, res) => {
     res.json(ticket);
 };
 
+exports.editTicket = async (req, res) => {
+    const idQuery = { _id: req.body.ticketId };
+    const newVal = {$set: { content: req.body.content, updatedAt: new Date() } };
+
+    const ticket = await Ticket.updateOne( idQuery, newVal );
+    res.json(ticket);
+};
+
 
 exports.listTickets = async (req, res) => {
     const { prefix } = req.body;
 
-    const tickets = await Ticket.find( {content: { $regex: prefix } } );
+    const tickets = await Ticket.find( {content: { $regex: prefix, $options: "i" } } );
 
 
     for (let i=0;i<tickets.length;i++) {

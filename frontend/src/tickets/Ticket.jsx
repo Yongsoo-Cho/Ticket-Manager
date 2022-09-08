@@ -8,10 +8,15 @@ const Ticket = ({
     username,
     seeDetails
 }) => {
+    
+
     return(
         <div className = 'ticket' onClick = {seeDetails}>
-            <h1>{username}</h1>
-            <h1>{content}</h1>
+            <div>
+                <h3>{username}</h3>
+                <h3 className = 'ticket-date'>{new Date(createdAt).toLocaleString()}</h3>
+            </div>
+            <h1>{content.length<50 ? content : content.substring(0,50)+'...'}</h1>
         </div>
     );
 

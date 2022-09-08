@@ -5,7 +5,6 @@ import Register from "./register/Register";
 import isAuthenticated from './utils/isAuthenticated';
 import { UnauthenticatedRoute, AuthenticatedRoute, AdminRoute } from './utils/protectRoutes';
 import TicketsList from './tickets/TicketsList';
-import TicketCreate from './tickets/TicketCreate';
 import DeadPage from './deadpage/DeadPage';
 import Profile from './profile/Profile';
 
@@ -15,7 +14,6 @@ function App() {
       <Routes>
         <Route path="/" element={isAuthenticated() ? <TicketsList/> : <Login/>}/>
 
-        {AuthenticatedRoute('/create', <TicketCreate/> )}
         {AuthenticatedRoute('/profile', <Profile/> )}
         {UnauthenticatedRoute('/register', <Register/>)}
         {AdminRoute('/admin', <h1>HELLO ADMIN</h1>)}

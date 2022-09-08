@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { listTickets } from './ticket-operations';
-import { Link } from 'react-router-dom';
+import TicketSideBar from './TicketSideBar';
 import Ticket from './Ticket';
 import TicketDetailsModal from './TicketDetailsModal';
-import logout from '../utils/logout';
+import './tickets.css';
 
 const TicketsList = () => {
     const [prefix, setPrefix] = useState('');
@@ -16,7 +16,7 @@ const TicketsList = () => {
 
         const fetchData = async () => {
             const ticketsResponse = await listTickets({ prefix });
-            setTicketList(ticketsResponse);
+            setTicketList(ticketsResponse.reverse());
             const map ={};
             for(let i=0;i<ticketsResponse.length; i++){
                 const ticket =ticketsResponse[i];
@@ -26,7 +26,7 @@ const TicketsList = () => {
         };
 
         fetchData();
-    }, [prefix]);
+    }, [prefix, ticketList]);
 
     const ticketComponents = ticketList.map(t => {
         return (
@@ -47,28 +47,28 @@ const TicketsList = () => {
 
     return (
         <div className = 'ticket-list-container'>
-            <h3>Hello</h3>
+            <div className = 'ticket-listings'>
+                <div className = 'input-container'>
+                    <input 
+                        type="text" 
+                        placeholder="Search tickets..."
+                        onChange={e => setPrefix(e.target.value)}
+                        value = {prefix}
+                    />
+                    <button onClick={()=>setPrefix('')}>x</button>
+                </div>
+                
 
-            <input 
-                type="text" 
-                placeholder="Search tickets"
-                onChange={e => setPrefix(e.target.value)}
-                value = {prefix}
-            
-            />
+                {ticketComponents}
 
-            {ticketComponents}
+                <TicketDetailsModal 
+                    ticket = {ticketMap[ticketId]}
+                    onClose = {() => setIsOpen(false)}
+                    isOpen = {isOpen}
+                />
+            </div>
 
-            <TicketDetailsModal 
-                ticket = {ticketMap[ticketId]}
-                onClose = {() => setIsOpen(false)}
-                isOpen = {isOpen}
-            />
-
-            <button onClick={logout}>
-                Logout
-            </button>
-            <Link to="/create" className='register-link'><h3>Create Ticket (Test)</h3></Link>
+            <TicketSideBar/>
         </div>
     );
 };
