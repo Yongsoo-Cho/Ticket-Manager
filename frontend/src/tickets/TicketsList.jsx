@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { listTickets } from './ticket-operations';
+import { Link } from 'react-router-dom';
 import Ticket from './Ticket';
 import TicketDetailsModal from './TicketDetailsModal';
 import logout from '../utils/logout';
@@ -67,6 +68,7 @@ const TicketsList = () => {
             <button onClick={logout}>
                 Logout
             </button>
+            <Link to="/create" className='register-link'><h3>Create Ticket (Test)</h3></Link>
         </div>
     );
 };

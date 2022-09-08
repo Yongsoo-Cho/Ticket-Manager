@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './register.css';
 import { register } from './register-operations';
+import { Link } from 'react-router-dom'
+import Arrow from '../uikit/arrow.svg'
 import isAuthenticated from '../utils/isAuthenticated';
 
 const Register = () => {
@@ -51,12 +53,9 @@ const Register = () => {
     return (
       <div class= 'signup-container'>
 
-        <div></div>
-
         <div className='signup-form-container'>
-          <h3 className='signup-form-container-register-title'>REGISTER</h3>
+          <h1 className='signup-form-container-register-title'>Register</h1>
           <form onSubmit={handleSubmit}>
-            <h3>Email Address</h3>
             <input 
               type="text" 
               placeholder="Email Address..." 
@@ -66,7 +65,6 @@ const Register = () => {
               required
             />
 
-            <h3>Username</h3>
             <input 
               type="text" 
               placeholder="Username..." 
@@ -76,7 +74,6 @@ const Register = () => {
               required
             />
 
-            <h3>First Name</h3>
             <input 
               type="text" 
               placeholder="First Name..." 
@@ -86,7 +83,6 @@ const Register = () => {
               required
             />
 
-            <h3>Last Name</h3>
             <input 
               type="text" 
               placeholder="Last Name..." 
@@ -96,7 +92,6 @@ const Register = () => {
               required
             />
 
-            <h3>Password</h3>
             <input 
               type="password" 
               placeholder="Password..." 
@@ -106,7 +101,6 @@ const Register = () => {
               required
             />
 
-            <h3>Admin Code</h3>
             <input 
               type="password" 
               placeholder="Admin Code -Optional"
@@ -115,14 +109,20 @@ const Register = () => {
               onChange={handleChange}
             />
 
-            <button>Register</button>
+            <button> 
+              <img id='searchButton' src={Arrow} alt="Arrow"/>
+            </button>
 
             {error && <h3 className='signup-error'>Something went wrong</h3>}
             {success && <h3 className='signup-success'>Account has been created. Wait for admin to enable account.</h3>}
           </form>
         </div>
 
-        <div></div>
+        <div>
+          <div className='register-container'>
+            <Link to="/" className='register-link'><h3>Back to Login</h3></Link>
+          </div>
+        </div>
 
       </div>
     

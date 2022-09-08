@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import './login.css';
 import { login } from './login-operations'
 import { Link } from 'react-router-dom'
+import Arrow from '../uikit/arrow.svg'
+
+/* <span>
+              <i className="fab fa-airbnb"></i>
+</span> */
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -28,11 +33,11 @@ const Login = () => {
     
     return (
       <div class= 'login-container'>
-        <div></div>
-
         <div className='login-form-container'>
+
+          <h1>Sign In</h1>
           <form onSubmit={handleSubmit}>
-            <h3>Username</h3>
+  
             <input 
               type="text"
               placeholder="Username..." 
@@ -41,7 +46,6 @@ const Login = () => {
               required
             />
 
-            <h3>Password</h3>
             <input 
               type="password" 
               placeholder="Password..." 
@@ -49,12 +53,16 @@ const Login = () => {
               onChange={e=> setPassword(e.target.value)}
               required
             />
-            <button>Sign In</button>
-
-            {error && <h3 className='login-error'>Something went wrong</h3>}
+            {error && <h3 className='login-error'>Something went wrong.</h3>}
+            <button> 
+              <img id='searchButton' src={Arrow} alt="Arrow"/>
+            </button>
             
           </form>
           
+        </div>
+
+        <div>
           <div className='register-container'>
             <Link to="/register" className='register-link'><h3>Create an Account</h3></Link>
           </div>

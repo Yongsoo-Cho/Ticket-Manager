@@ -1,57 +1,58 @@
 .signup-container{
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    background-color: rgb(255, 255, 255);
+    grid-template-columns: 3fr 1fr;
+    background-color: rgb(95, 166, 189);
 }
 
 .signup-form-container{
     font-family: 'Montserrat', sans-serif; font-weight:400; font-style:italic;
-    background: rgb(24, 24, 26);
+    background: rgb(249, 249, 249);
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding-top: 10%;
+    padding-top: 8%;
 }
 
 .signup-form-container-register-title{
     font-family: 'Montserrat', sans-serif; font-weight:400; font-style:normal;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
-.signup-form-container h3{
+.signup-form-container h1{
     margin: 3px;
-}
-
-.signup-form-container form{
-    margin: 5px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 70%;
+    font-family: 'Montserrat', sans-serif; font-weight:700; font-style:bold;
+    font-size: 40px;
 }
 
 .signup-container input{
-    font-family: 'Montserrat', sans-serif; font-weight:400; font-style:italic;
+    font-family: 'Montserrat', sans-serif; font-weight:50; font-style:light;
+    background: rgb(237,237,237);
     display: block;
-    font-size: 15px;
+    font-size: 20px;
     margin: 10px auto;
-    border-radius: 8px;
+    border-radius: 30px;
     padding-left: 10px;
+    padding: 10px;
+    padding-left: 15px;
+    outline: none;
+    border: none;
+    margin-top: 20px;
+    width: 100vh;
 }
 
-.signup-container button{
-    font-family: 'Montserrat', sans-serif; font-weight:400; font-style:italic;
-    width: 100%;
-    border-radius: 8px;
+.signup-form-container button{
+    width: 19%;
+    margin-left: 290px;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
     padding: 10px;
-    font-size: 15px;
+    background: rgb(192,192,192);
 }
 
-.signup-container button:hover{
-    background: red;
+.signup-form-container button:hover{
+    background: rgb(170,170,170);
 }
 
 .signup-container .signup-error{
