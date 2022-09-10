@@ -14,6 +14,11 @@ export const createTicket = async (body) => {
     return response.data;
 };
 
+export const deleteTicket = async (ticketId) => {
+    const response = await axios.delete(`${API_ENDPOINT}/ticket/${ticketId}`);
+    return response.data;
+}
+
 export const editTicket = async (body) => {
     const response = await axios.post(`${API_ENDPOINT}/ticket/edit`, body);
 
@@ -28,6 +33,10 @@ export const createComment = async (body) => {
 
 export const listTickets = async (body) => {
     const response = await axios.post(`${API_ENDPOINT}/ticket/list`, body);
-    console.log(response.data);
     return response.data;
 };
+
+export const listComments = async (body) => {
+    const response = await axios.post(`${API_ENDPOINT}/comment/list`, body);
+    return response.data;
+}

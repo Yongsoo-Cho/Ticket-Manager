@@ -7,8 +7,6 @@ const Profile = () => {
     const token = window.localStorage.getItem("token");
     const { userId } = decode(token);
 
-
-
     useEffect(() => {
         const fetchData = async () => {
             const profileResponse = await describeUser(userId);
@@ -22,9 +20,7 @@ const Profile = () => {
         <div></div>
 
         <div className='login-form-container'>
-          <h3>THIS IS YOU</h3>
-          <h3>{profile.firstName}</h3>
-          <h3>{profile.lastName}</h3>
+          <h3>{profile.firstName+' '+profile.lastName}</h3>
         </div>
 
       </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import TicketCreate from './TicketCreate';
 import Logout from '../uikit/logout.svg';
 import logout from '../utils/logout';
+import { Link } from 'react-router-dom';
 import { describeUser } from '../common/operations'
 import decode from 'jwt-decode';
 import './tickets.css';
@@ -19,10 +20,9 @@ const TicketSideBar = () => {
         fetchData();
     }, []);
 
-
     return (
         <div className = 'ticket-sidebar'>
-            <h1>{name}</h1>
+            <Link to="/profile" style={{ textDecoration: 'none' }}> <h1>{name}</h1> </Link>
             <h3>{admin}</h3>
 
             <TicketCreate/>

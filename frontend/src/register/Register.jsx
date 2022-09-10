@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './register.css';
 import { register } from './register-operations';
-import { Link } from 'react-router-dom'
-import Arrow from '../uikit/arrow.svg'
+import { Link } from 'react-router-dom';
+import Arrow from '../uikit/arrow.svg';
 import isAuthenticated from '../utils/isAuthenticated';
 
 const Register = () => {

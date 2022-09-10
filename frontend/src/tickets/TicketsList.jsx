@@ -11,6 +11,7 @@ const TicketsList = () => {
     const [ticketId, setTicketId] = useState('');
     const [isOpen, setIsOpen] = useState(false);
     const [ticketMap, setTicketMap] = useState({});
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
 
@@ -23,6 +24,7 @@ const TicketsList = () => {
                 map[ticket._id] = ticket;
             }
             setTicketMap(map);
+            setLoading(false);
         };
 
         fetchData();
@@ -36,6 +38,7 @@ const TicketsList = () => {
                 createdAt = {t.createdAt}
                 username = {t.username}
                 ticketId = {t._id}
+                status = {t.status}
                 seeDetails = {() => {
                     setTicketId(t._id);
                     setIsOpen(true);
@@ -47,6 +50,7 @@ const TicketsList = () => {
 
     return (
         <div className = 'ticket-list-container'>
+            
             <div className = 'ticket-listings'>
                 <div className = 'input-container'>
                     <input 
@@ -55,9 +59,9 @@ const TicketsList = () => {
                         onChange={e => setPrefix(e.target.value)}
                         value = {prefix}
                     />
-                    <button onClick={()=>setPrefix('')}>x</button>
+   
                 </div>
-                
+                {loading && <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>}
 
                 {ticketComponents}
 

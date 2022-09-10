@@ -29,6 +29,7 @@
   font-size: 12px;
 
   margin: 5px 30px;
+  margin-bottom: 10px;
   margin-left: 195px;
 
   cursor: pointer;
@@ -50,7 +51,14 @@
   font-family: 'Montserrat', sans-serif; font-weight:10; font-style:light;
 }
 .ticket-date{
-  margin-left: 350px;
+  margin-left: 50px;
+}
+.status-container{
+  height: 5px;
+  width: 580px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  background-color: blue;
 }
 
 .ticket-listings input{
@@ -77,21 +85,15 @@
 
 .input-container input{
   display: inline;
+  width: 30%;
+  margin-left: 346px;
   margin-bottom: 20px;
+  transition: 500ms;
+  transition-timing-function: cubic-bezier(0.2, 0.9, 0.0, 1.0);
 }
-.input-container button{
-  font-family: 'Montserrat', sans-serif; font-weight:10; font-style:light;
-  display: inline;
-  font-size: 25px;
-  background: none;
-  outline: none;
-  border: none;
-  color: rgb(169, 169, 169);
-  position: relative;
-  right: 50px;
-}
-.input-container button:hover{
-  color: rgb(136, 136, 136);
+.input-container input:focus{
+  width: 600px;
+  margin-left: 201px;
 }
 
 .ticket-sidebar{
@@ -108,6 +110,9 @@
   font-family: 'Montserrat', sans-serif; font-weight:700; font-style:light;
   color: white;
   margin-bottom: 5px;
+}
+.ticket-sidebar h1:hover{
+  color: rgb(237,237,237);
 }
 .ticket-sidebar h3{
   font-family: 'Montserrat', sans-serif; font-weight:100; font-style:light;
@@ -142,7 +147,7 @@
   fill: rgb(234, 234, 234);
 }
 .ticket-create-container{
-  margin-top: 90px;
+  margin-top: 20px;
 }
 .ticket-create-container textarea{
   outline: none;
@@ -157,7 +162,11 @@
 
   font-family: 'Montserrat', sans-serif; font-weight:100; font-style:light;
   font-size: 15px;
+
+  transition: 500ms;
+  transition-timing-function: cubic-bezier(0.2, 0.9, 0.0, 1.0);
 }
+
 .ticket-create-container button{
   font-family: 'Montserrat', sans-serif; font-weight:700; font-style:light;
   color: white;
@@ -172,4 +181,106 @@
 }
 .ticket-create-container button:hover{
   color: rgb(234, 234, 234);
+}
+
+/* from https://loading.io/css/ */
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  left: 480px;
+  top: 200px;
+  width: 80px;
+  height: 80px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgb(95, 166, 189);
+  margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Modal Styles */
+.modal-bottom-contianer{
+  background-color: rgb(237, 237, 237);
+  height: 100vh;
+  width: 100vh;
+}
+.modal-close{
+  font-size: 20px;
+  margin-right: 20px;
+}
+.delete-ticket{
+  font-size: 20px;
 }

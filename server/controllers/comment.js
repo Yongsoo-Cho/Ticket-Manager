@@ -22,7 +22,7 @@ exports.deleteComment = async(req,res) => {
 exports.listComments = async(req, res) => {
     const { ticketId } = req.body;
 
-    const comments = await Comment.find( ticketId );
+    const comments = await Comment.find( {ticketId} );
 
     res.json(comments);
 };
