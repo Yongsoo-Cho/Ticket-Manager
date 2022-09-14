@@ -28,7 +28,7 @@ exports.describeTicket = async (req, res) => {
 
 exports.editTicket = async (req, res) => {
     const idQuery = { _id: req.body.ticketId };
-    const newVal = {$set: { content: req.body.content, updatedAt: new Date() } };
+    const newVal = { $set: { content: req.body.content, updatedAt: new Date() } };
 
     const ticket = await Ticket.updateOne( idQuery, newVal );
     res.json(ticket);

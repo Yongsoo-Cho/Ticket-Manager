@@ -272,15 +272,45 @@
 }
 
 /* Modal Styles */
-.modal-bottom-contianer{
-  background-color: rgb(237, 237, 237);
-  height: 100vh;
-  width: 100vh;
+.modal-close-contianer{
+  width: 100%;
+}
+.comment-list{
+  font-family: 'Montserrat', sans-serif; font-weight:10; font-style:light;
+}
+.id-desc{
+  font-family: 'Montserrat', sans-serif; font-weight:700; font-style:light;
+  margin-bottom: 5px;
+}
+.user-id{
+  font-family: 'Montserrat', sans-serif; font-weight:700; font-style:light;
+  margin-bottom: 5px;
+}
+.ticket-submit-date{
+  font-family: 'Montserrat', sans-serif; font-weight:400; font-style:light;
+  margin-top: 0px;
+  font-size: 15px;
+  color: grey;
+}
+.comment-edit-textarea{
+  resize: none;
+  outline: none;
+  width: 100%;
+  height: 15%;
+  font-family: 'Montserrat', sans-serif; font-weight:10; font-style:light;
+  font-size: 15px;
+}
+p{
+  font-family: 'Montserrat', sans-serif; font-weight:10; font-style:light;
+  font-size: 15px;
 }
 .modal-close{
   font-size: 20px;
-  margin-right: 20px;
+  position: relative;
+  float: right;
+  margin-left: 10px;
 }
 .delete-ticket{
   font-size: 20px;
+  float: right;
 }
